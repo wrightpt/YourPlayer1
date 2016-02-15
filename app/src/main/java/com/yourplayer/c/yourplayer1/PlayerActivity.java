@@ -1,6 +1,8 @@
 package com.yourplayer.c.yourplayer1;
 
 import android.os.*;
+import android.util.*;
+import android.view.*;
 import android.widget.*;
 
 import com.google.android.youtube.player.*;
@@ -20,6 +22,18 @@ public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer
 
         playerView = (YouTubePlayerView)findViewById(R.id.player_view);
         playerView.initialize(YoutubeConnector.KEY, this);
+
+
+        playerView.setLongClickable(true);
+        playerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.d("ontouch","onTouch");
+
+                return true;
+            }
+        });
+
     }
 
     @Override
